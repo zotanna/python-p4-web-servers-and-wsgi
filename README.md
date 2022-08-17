@@ -25,26 +25,30 @@
   and applications.
 - **Template Engine**: software that takes in strings with tokenized
   values, replacing the tokens with their values as output in a web browser.
-  
+
 ***
 
 ## Introduction
 
-Lorem ipsum dolor sit amet. Ut velit fugit et porro voluptas quia sequi quo
-libero autem qui similique placeat eum velit autem aut repellendus quia. Et
-Quis magni ut fugit obcaecati in expedita fugiat est iste rerum qui ipsam
-ducimus et quaerat maxime sit eaque minus. Est molestias voluptatem et nostrum
-recusandae qui incidunt Quis 33 ipsum perferendis sed similique architecto.
+Web servers are the software and hardware that allow users to access resources
+through the internet. While there are a whole range of jobs that are dedicated
+to creating and maintaining servers, building a basic server for yourself is
+actually very simple:
 
-Sed ipsam quidem eum minima maxime et commodi dolores quo ipsa maxime aut vero
-consectetur id velit dignissimos. Et fuga porro eum galisum suscipit qui esse
-blanditiis sed explicabo officia aut mollitia error est illo earum et sint
-laborum! Sit aspernatur accusantium aut doloribus saepe est magni quod aut
-molestiae voluptatem.
+```console
+$ python -m http.server
+# => Serving HTTP on :: port 8000 (http://[::]:8000/) ...
+```
 
-Vel inventore minus aut ullam maiores sit internos cupiditate eos odit totam
-eos molestiae galisum. Et ipsum provident ut nihil dicta et dicta doloremque
-eum magnam ullam ut quibusdam quaerat.
+Navigate to `localhost:8000` in your browser and you should see the following:
+
+![http.server image](image.html "http.server web page")
+
+`http.server` is a module in Python's standard library that creates a simple
+webpage that can respond to clients through an open URL and port. Run from the
+command line, it creates a navigable directory structure with URLs mimicking the
+path for each resource. Clicking on a directory shows its contents, and clicking
+on a file downloads it to your computer.
 
 ***
 
