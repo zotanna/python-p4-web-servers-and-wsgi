@@ -3,8 +3,6 @@
 ## Learning Goals
 
 - Describe the components of a web application framework.
-- Build and run a Flask application on your computer.
-- Manipulate and test the structure of a request object.
 
 ***
 
