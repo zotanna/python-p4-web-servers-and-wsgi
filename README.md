@@ -189,7 +189,7 @@ $ app/werkzeug_app.py
 Go to `localhost:4000` and you should see the following:
 
 ![Google Chrome page with text "A WSGI generated this response!"](
-https://curriculum-content.s3.amazonaws.com/python/werkzeug_intro_response.png
+https://curriculum-content.s3.amazonaws.com/python/werkzeug_into_response_2.png
 "WSGI simple response")
 
 All of this together created an application and a web server that allowed us to
