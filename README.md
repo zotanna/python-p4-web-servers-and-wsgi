@@ -199,71 +199,18 @@ access a message in our browser.
 
 ***
 
-## Lesson Section
-
-Lorem ipsum dolor sit amet. Ut velit fugit et porro voluptas quia sequi quo
-libero autem qui similique placeat eum velit autem aut repellendus quia. Et
-Quis magni ut fugit obcaecati in expedita fugiat est iste rerum qui ipsam
-ducimus et quaerat maxime sit eaque minus. Est molestias voluptatem et nostrum
-recusandae qui incidunt Quis 33 ipsum perferendis sed similique architecto.
-
-```py
-# python code block
-print("statement")
-# => statement
-```
-
-```js
-// javascript code block
-console.log("use these for comparisons between languages.")
-// => use these for comparisons between languages.
-```
-
-```console
-echo "bash/zshell statement"
-# => bash/zshell statement
-```
-
-<details>
-  <summary>
-    <em>Check for understanding text goes here! <code>Code statements go here.</code></em>
-  </summary>
-
-  <h3>Answer.</h3>
-  <p>Elaboration on answer.</p>
-</details>
-<br/>
-
-***
-
-## Instructions
-
-This is a **test-driven lab**. Run `pipenv install` to create your virtual
-environment and `pipenv shell` to enter the virtual environment. Then run
-`pytest -x` to run your tests. Use these instructions and `pytest`'s error
-messages to complete your work in the `lib/` folder.
-
-Instructions begin here:
-
-- Make sure to specify any class, method, variable, module, package names
-  that `pytest` will check for.
-- Any other instructions go here.
-
-Once all of your tests are passing, commit and push your work using `git` to
-submit.
-
-***
-
 ## Conclusion
 
-Conclusion summary paragraph. Include common misconceptions and what students
-will be able to do moving forward.
+This was a brief introduction to web servers and WSGI. We won't typically
+build servers and applications in a single file, nor will we move requests and
+responses around without accessing any of their attributes. We will explore
+web servers with Flask and Werkzeug in much greater depth throughout Phase 4.
 
 ***
 
 ## Resources
 
 - [Werkzeug - Pallets Projects][werkzeug]
-- [Reused Resource][reused resource]
+- [What is a web server? - Mozilla][https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_web_server]
 
 [werkzeug]: https://werkzeug.palletsprojects.com/en/2.2.x/quickstart/
