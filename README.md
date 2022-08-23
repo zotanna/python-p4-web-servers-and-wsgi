@@ -81,9 +81,121 @@ as seen above, and Flask applications default to port 5000. There isn't
 typically a need to specify a port, but if you're running two servers on your
 computer at once, you will need to set the second port to another value.
 
+> NOTE: Some firewalls block certain ports. If you see a 403 response code in
+> your browser, you probably need to change the port that your server is running
+> on.
+
 ***
 
-## 
+## Web Server Gateway Interface (WSGI)
+
+The Web Server Gateway Interface (usually called WSGI) is a specification that
+tells applications and web servers how to communicate effectively with one
+another. WSGIs were introduced by PEP 333 (updated to PEP 3333 after the release
+of Python 3) because the web frameworks that existed at the time were not able
+to work with many popular servers. Developers usually have strong preferences
+about the frameworks and libraries that they implement applications with, so
+this limitation prevented many from making the switch from Java to Python.
+
+The implementation of WSGI eliminated this concern. Because WSGIs could be
+configured to work with Python on one side to process requests and servers on
+the other side to process responses, developers no longer had to worry about
+designing whole applications around their choice of server. WSGIs today are
+configured to work with most popular servers out of the box, and many even
+include development servers for you to work with as you build your application!
+
+### Werkzeug
+
+[Werkzeug][werkzeug] is the WSGI library that we will be using in Phase 4.
+Werkzeug was developed by the Armin Ronacher (the author of Flask!) and is
+maintained by the Pallets Projects team. It includes a number of features that
+will come in handy as we start to build our first Python web applications:
+
+- An in-browser debugger.
+- Robust classes for requests and responses.
+- Routing, auto-generation and management of URLs.
+- A development server.
+- A testing framework that does not require a running server.
+
+Let's take a look at a simple application that we can run with Werkzeug alone.
+
+#### A Simple Werkzeug Application
+
+Run `pipenv install && pipenv shell` to generate and enter your virtual
+environment. This will install Werkzeug, alongside our usual testing and
+debugging libraries.
+
+In `app/werkzeug_app.py`, enter the following code:
+
+```py
+#!/usr/bin/env python3
+
+from werkzeug.wrappers import Request, Response
+
+@Request.application
+def application(request):
+    return Response('A WSGI generated this response!')
+
+if __name__ == '__main__':
+    from werkzeug.serving import run_simple
+    run_simple(
+        hostname='localhost',
+        port=4000,
+        application=application
+    )
+```
+
+Let's break down our code a bit:
+
+```py
+@Request.application
+def application(request):
+    return Response('A WSGI generated this response!')
+```
+
+This is the sole function inside of our script. (You can call it anything, we
+used `application` for simplicity's sake.) It is decorated with the
+`Request.application` method, which tells it to run any code inside of the
+function in the browser at the location we specify with our development server.
+
+```py
+run_simple(
+    hostname='localhost',
+    port=4000,
+    application=application
+)
+```
+
+The `run_simple()` method runs a server for a one-page application without
+complications. It is not suited for a production server that supports millions
+of users, but it gives us the tools we need to develop new pages for the web
+applications that we eventually deploy to those servers.
+
+`run_simple()` requires three arguments: a `hostname` (generally `localhost`, as
+it is typically used for local development), a `port`, and an `application`.
+This application will be defined in a function somewhere in the file- as we saw
+before, we named ours `application`.
+
+Run `python app/werkzeug_app.py` (or change the file to be executable first if
+you prefer). You should see the following in the terminal:
+
+```console
+$ app/werkzeug_app.py
+# => WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+# =>  * Running on http://localhost:4000
+# => Press CTRL+C to quit
+# => 127.0.0.1 - - [23/Aug/2022 10:35:08] "GET / HTTP/1.1" 200 -
+# => 127.0.0.1 - - [23/Aug/2022 10:35:08] "GET /favicon.ico HTTP/1.1" 200 -
+```
+
+Go to `localhost:4000` and you should see the following:
+
+![Google Chrome page with text "A WSGI generated this response!"](
+https://curriculum-content.s3.amazonaws.com/python/werkzeug_intro_response.png
+"WSGI simple response")
+
+All of this together created an application and a web server that allowed us to
+access a message in our browser.
 
 ***
 
@@ -151,7 +263,7 @@ will be able to do moving forward.
 
 ## Resources
 
-- [Resource 1](https://www.python.org/doc/essays/blurb/)
+- [Werkzeug - Pallets Projects][werkzeug]
 - [Reused Resource][reused resource]
 
-[reused resource]: https://docs.python.org/3/
+[werkzeug]: https://werkzeug.palletsprojects.com/en/2.2.x/quickstart/
