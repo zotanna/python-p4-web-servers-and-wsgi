@@ -42,13 +42,48 @@ $ python -m http.server
 
 Navigate to `localhost:8000` in your browser and you should see the following:
 
-![http.server image](image.html "http.server web page")
+![http.server image](
+https://curriculum-content.s3.amazonaws.com/python/python_httpserver_screenshot.png
+"http.server web page")
 
 `http.server` is a module in Python's standard library that creates a simple
 webpage that can respond to clients through an open URL and port. Run from the
 command line, it creates a navigable directory structure with URLs mimicking the
 path for each resource. Clicking on a directory shows its contents, and clicking
 on a file downloads it to your computer.
+
+### Ports
+
+Notice the "8000" after your hostname when you run `http.server`? This is the
+**port** that allows you to access the resources that your server is serving.
+Ports are a networking concept that you won't use a whole lot in full-stack web
+development, but you'll see them whenever you run a server.
+
+You can think of ports like _extensions_ on phone numbers. If you call your
+doctor's office, you're accessing the practice with the phone number itself
+(this is like the URL), but you're reaching the specific doctor through the
+extension.
+
+Some ports are explicit and specific- you can't access your `http.server`
+resource without including `:8000` at the end of your URL. Others are implied
+by the protocol used to connect to the resource. HTTP is always `:80`, HTTPS is
+always `:443`, FTP (**F**ile **T**ransfer **P**rotocol) uses `:20` and `:21`,
+etc.
+
+> NOTE: If you see a lock next to the URL (or `https://`), it means that you're
+> accessing a resource protected by Transport Layer Security, or TLS. Though it
+> doesn't show `:443`, this is the port that you're using. You should always
+> check that a website is protected before entering any personal information!
+
+Running your own server, you can choose any port between 1024 and 65,535 to
+make your application accessible in the browser. `http.server` defaults to 8000
+as seen above, and Flask applications default to port 5000. There isn't
+typically a need to specify a port, but if you're running two servers on your
+computer at once, you will need to set the second port to another value.
+
+***
+
+## 
 
 ***
 
