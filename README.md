@@ -211,6 +211,6 @@ web servers with Flask and Werkzeug in much greater depth throughout Phase 4.
 ## Resources
 
 - [Werkzeug - Pallets Projects][werkzeug]
-- [What is a web server? - Mozilla][https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_web_server]
+- [What is a web server? - Mozilla](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_web_server)
 
 [werkzeug]: https://werkzeug.palletsprojects.com/en/2.2.x/quickstart/
