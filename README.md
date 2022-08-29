@@ -132,6 +132,7 @@ from werkzeug.wrappers import Request, Response
 
 @Request.application
 def application(request):
+    print(f'This web server is running at {request.remote_addr}')
     return Response('A WSGI generated this response!')
 
 if __name__ == '__main__':
@@ -148,6 +149,7 @@ Let's break down our code a bit:
 ```py
 @Request.application
 def application(request):
+    print(f'This web server is running at {request.remote_addr}')
     return Response('A WSGI generated this response!')
 ```
 
@@ -180,10 +182,7 @@ you prefer). You should see the following in the terminal:
 ```console
 $ app/werkzeug_app.py
 # => WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
-# =>  * Running on http://localhost:4000
-# => Press CTRL+C to quit
-# => 127.0.0.1 - - [23/Aug/2022 10:35:08] "GET / HTTP/1.1" 200 -
-# => 127.0.0.1 - - [23/Aug/2022 10:35:08] "GET /favicon.ico HTTP/1.1" 200 -
+# => * Running on http://localhost:4000/ (Press CTRL+C to quit)
 ```
 
 Go to `localhost:4000` and you should see the following:
@@ -191,6 +190,15 @@ Go to `localhost:4000` and you should see the following:
 ![Google Chrome page with text "A WSGI generated this response!"](
 https://curriculum-content.s3.amazonaws.com/python/werkzeug_into_response_2.png
 "WSGI simple response")
+
+Back in the terminal, you should see a message generated from our request:
+
+```console
+# => This web server is running at 127.0.0.1
+# => 127.0.0.1 - - [29/Aug/2022 07:11:39] "GET / HTTP/1.1" 200 -
+```
+
+
 
 All of this together created an application and a web server that allowed us to
 access a message in our browser.
@@ -201,8 +209,16 @@ access a message in our browser.
 
 This was a brief introduction to web servers and WSGI. We won't typically
 build servers and applications in a single file, nor will we move requests and
-responses around without accessing any of their attributes. We will explore
-web servers with Flask and Werkzeug in much greater depth throughout Phase 4.
+responses around without manipulating any of their attributes.
+
+Most of the work performed by a WSGI will be invisible in modern web application
+frameworks, but it is important to know that this is going on behind the scenes.
+Without WSGIs, servers and Python applications would have a very difficult time
+communicating with one another. People might not be using Python for web
+development _at all_ without its popular WSGIs.
+
+We will explore more practical implementations of web servers with Flask and
+Werkzeug (and in greater depth) throughout Phase 4.
 
 ***
 
