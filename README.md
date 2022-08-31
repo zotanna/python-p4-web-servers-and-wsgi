@@ -88,16 +88,17 @@ computer at once, you will need to set the second port to another value.
 ## Web Server Gateway Interface (WSGI)
 
 The Web Server Gateway Interface (usually called WSGI) is a specification that
-tells applications and web servers how to communicate effectively with one
-another. WSGIs were introduced by PEP 333 (updated to PEP 3333 after the release
-of Python 3) because the web frameworks that existed at the time were not able
-to work with many popular servers. Developers usually have strong preferences
-about the frameworks and libraries that they implement applications with, so
-this limitation prevented many from making the switch from Java to Python.
+tells our Python code on a client or server how to communicate effectively over
+HTTP (or HTTPS, of course). WSGIs were introduced by PEP 333 (updated to PEP
+3333 after the release of Python 3) because the web frameworks that existed at
+the time were not able to work with many popular servers without writing custom
+code. Developers usually have strong preferences about the frameworks and
+libraries that they implement applications with, so this limitation prevented
+many from making the switch from Java to Python.
 
 The implementation of WSGI eliminated this concern. Because WSGIs could be
-configured to work with Python on one side to process requests and servers on
-the other side to process responses, developers no longer had to worry about
+configured to work with Python on one side to process requests and web servers
+on the other side to process responses, developers no longer had to worry about
 designing whole applications around their choice of server. WSGIs today are
 configured to work with most popular servers out of the box, and many even
 include development servers for you to work with as you build your application!
@@ -197,8 +198,6 @@ Back in the terminal, you should see a message generated from our request:
 # => This web server is running at 127.0.0.1
 # => 127.0.0.1 - - [29/Aug/2022 07:11:39] "GET / HTTP/1.1" 200 -
 ```
-
-
 
 All of this together created an application and a web server that allowed us to
 access a message in our browser.
