@@ -140,7 +140,7 @@ if __name__ == '__main__':
     from werkzeug.serving import run_simple
     run_simple(
         hostname='localhost',
-        port=4000,
+        port=5555,
         application=application
     )
 ```
@@ -162,7 +162,7 @@ function in the browser at the location we specify with our development server.
 ```py
 run_simple(
     hostname='localhost',
-    port=4000,
+    port=5555,
     application=application
 )
 ```
@@ -183,10 +183,10 @@ you prefer). You should see the following in the terminal:
 ```console
 $ app/werkzeug_app.py
 # => WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
-# => * Running on http://localhost:4000/ (Press CTRL+C to quit)
+# => * Running on http://localhost:5555/ (Press CTRL+C to quit)
 ```
 
-Go to `localhost:4000` and you should see the following:
+Go to `localhost:5555` and you should see the following:
 
 ![Google Chrome page with text "A WSGI generated this response!"](
 https://curriculum-content.s3.amazonaws.com/python/werkzeug_into_response_2.png
