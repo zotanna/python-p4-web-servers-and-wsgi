@@ -75,9 +75,9 @@ etc.
 
 Running your own server, you can choose any port between 1024 and 65,535 to
 make your application accessible in the browser. `http.server` defaults to 8000
-as seen above, and Flask applications default to port 5000. There isn't
-typically a need to specify a port, but if you're running two servers on your
-computer at once, you will need to set the second port to another value.
+as seen above, and Flask applications default to port 5000. We're typically
+going to change this to 5555 because of another application running on port
+5000: Apple's Airplay!
 
 > NOTE: Some firewalls block certain ports. If you see a 403 response code in
 > your browser, you probably need to change the port that your server is running
