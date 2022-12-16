@@ -124,11 +124,9 @@ Run `pipenv install && pipenv shell` to generate and enter your virtual
 environment. This will install Werkzeug, alongside our usual testing and
 debugging libraries.
 
-In `app/werkzeug_app.py`, enter the following code:
+In `server/werkzeug_app.py`, enter the following code:
 
 ```py
-#!/usr/bin/env python3
-
 from werkzeug.wrappers import Request, Response
 
 @Request.application
@@ -177,11 +175,11 @@ it is typically used for local development), a `port`, and an `application`.
 This application will be defined in a function somewhere in the file- as we saw
 before, we named ours `application`.
 
-Run `python app/werkzeug_app.py` (or change the file to be executable first if
+Run `python server/werkzeug_app.py` (or change the file to be executable first if
 you prefer). You should see the following in the terminal:
 
 ```console
-$ app/werkzeug_app.py
+$ python server/werkzeug_app.py
 # => WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
 # => * Running on http://localhost:5555/ (Press CTRL+C to quit)
 ```
@@ -220,6 +218,28 @@ We will explore more practical implementations of web servers with Flask and
 Werkzeug (and in greater depth) throughout Phase 4.
 
 ***
+
+## Solution Code
+
+```py
+# server/werkzeug_app.py
+
+from werkzeug.wrappers import Request, Response
+
+@Request.application
+def application(request):
+    print(f'This web server is running at {request.remote_addr}')
+    return Response('A WSGI generated this response!')
+
+if __name__ == '__main__':
+    from werkzeug.serving import run_simple
+    run_simple(
+        hostname='localhost',
+        port=5555,
+        application=application
+    )
+
+```
 
 ## Resources
 
