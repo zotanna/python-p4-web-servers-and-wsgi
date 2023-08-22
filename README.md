@@ -28,6 +28,8 @@
 
 ## Introduction
 
+This lesson is a code along. Please fork and clone it before continuing!
+
 Web servers are the software and hardware that allow users to access resources
 through the internet. While there are a whole range of jobs that are dedicated
 to creating and maintaining servers, building a basic server for yourself is
